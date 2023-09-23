@@ -2,6 +2,7 @@ package ru.magomedcoder.jsonrpc
 
 import ru.magomedcoder.jsonrpc.domain.JsonRpc
 import ru.magomedcoder.jsonrpc.domain.JsonRpcClient
+import ru.magomedcoder.jsonrpc.domain.JsonRpcException
 import ru.magomedcoder.jsonrpc.domain.JsonRpcInterceptor
 import ru.magomedcoder.jsonrpc.domain.parser.ResultParser
 import ru.magomedcoder.jsonrpc.domain.protocol.JsonRpcRequest
@@ -9,6 +10,22 @@ import java.lang.reflect.*
 import java.util.concurrent.atomic.AtomicLong
 
 val requestId = AtomicLong(0)
+
+// Создаем JSON-RPC сервис с использованием указанных параметров.
+fun <T> createJsonRpcService(
+    service: Class<T>,
+    client: JsonRpcClient,
+    resultParser: ResultParser,
+    interceptors: List<JsonRpcInterceptor> = listOf(),
+    logger: (String) -> Unit = {}
+): T {
+    val classLoader = service.classLoader
+    val interfaces = arrayOf<Class<*>>(service)
+    val invocationHandler =
+        createInvocationHandler(service, client, resultParser, interceptors, logger)
+    @Suppress("UNCHECKED_CAST")
+    return Proxy.newProxyInstance(classLoader, interfaces, invocationHandler) as T
+}
 
 // Получаем аннотированные параметры метода JSON-RPC.
 private fun Method.jsonRpcParameters(args: Array<Any?>?, service: Class<*>): Map<String, Any?> {
@@ -56,6 +73,13 @@ private fun <T> createInvocationHandler(
             logger("JsonRPC: Парсинг $returnType")
             if (response.result != null) {
                 return resultParser.parse(returnType, response.result)
+            } else {
+                checkNotNull(response.error)
+                throw JsonRpcException(
+                    response.error.message,
+                    response.error.code,
+                    response.error.data
+                )
             }
         }
     }
