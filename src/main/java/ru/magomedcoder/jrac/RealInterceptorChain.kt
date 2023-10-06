@@ -1,9 +1,9 @@
-package ru.magomedcoder.jsonrpc
+package ru.magomedcoder.jrac
 
-import ru.magomedcoder.jsonrpc.domain.JsonRpcClient
-import ru.magomedcoder.jsonrpc.domain.JsonRpcInterceptor
-import ru.magomedcoder.jsonrpc.domain.protocol.JsonRpcRequest
-import ru.magomedcoder.jsonrpc.domain.protocol.JsonRpcResponse
+import ru.magomedcoder.jrac.domain.JsonRpcClient
+import ru.magomedcoder.jrac.domain.JsonRpcInterceptor
+import ru.magomedcoder.jrac.domain.protocol.JsonRpcRequest
+import ru.magomedcoder.jrac.domain.protocol.JsonRpcResponse
 
 data class RealInterceptorChain(
     private val client: JsonRpcClient,

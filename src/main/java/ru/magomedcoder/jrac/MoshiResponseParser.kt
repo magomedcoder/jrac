@@ -1,9 +1,9 @@
-package ru.magomedcoder.jsonrpc
+package ru.magomedcoder.jrac
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import ru.magomedcoder.jsonrpc.domain.parser.ResponseParser
-import ru.magomedcoder.jsonrpc.domain.protocol.JsonRpcResponse
+import ru.magomedcoder.jrac.domain.parser.ResponseParser
+import ru.magomedcoder.jrac.domain.protocol.JsonRpcResponse
 
 class MoshiResponseParser(
     private val moshi: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()

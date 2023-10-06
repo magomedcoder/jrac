@@ -1,4 +1,4 @@
-package ru.magomedcoder.jsonrpc.domain
+package ru.magomedcoder.jrac.domain
 
 data class JsonRpcException(
     override val message: String,

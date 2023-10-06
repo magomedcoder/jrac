@@ -1,4 +1,4 @@
-package ru.magomedcoder.jsonrpc.domain.parser
+package ru.magomedcoder.jrac.domain.parser
 
 import java.lang.reflect.Type
 

@@ -1,4 +1,4 @@
-package ru.magomedcoder.jsonrpc.domain.protocol
+package ru.magomedcoder.jrac.domain.protocol
 
 data class JsonRpcRequest(
     val id: Long,

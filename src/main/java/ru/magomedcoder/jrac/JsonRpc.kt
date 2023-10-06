@@ -1,11 +1,11 @@
-package ru.magomedcoder.jsonrpc
+package ru.magomedcoder.jrac
 
-import ru.magomedcoder.jsonrpc.domain.JsonRpc
-import ru.magomedcoder.jsonrpc.domain.JsonRpcClient
-import ru.magomedcoder.jsonrpc.domain.JsonRpcException
-import ru.magomedcoder.jsonrpc.domain.JsonRpcInterceptor
-import ru.magomedcoder.jsonrpc.domain.parser.ResultParser
-import ru.magomedcoder.jsonrpc.domain.protocol.JsonRpcRequest
+import ru.magomedcoder.jrac.domain.JsonRpc
+import ru.magomedcoder.jrac.domain.JsonRpcClient
+import ru.magomedcoder.jrac.domain.JsonRpcException
+import ru.magomedcoder.jrac.domain.JsonRpcInterceptor
+import ru.magomedcoder.jrac.domain.parser.ResultParser
+import ru.magomedcoder.jrac.domain.protocol.JsonRpcRequest
 import java.lang.reflect.*
 import java.util.concurrent.atomic.AtomicLong
 

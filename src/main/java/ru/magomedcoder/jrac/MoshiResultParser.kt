@@ -1,8 +1,8 @@
-package ru.magomedcoder.jsonrpc
+package ru.magomedcoder.jrac
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import ru.magomedcoder.jsonrpc.domain.parser.ResultParser
+import ru.magomedcoder.jrac.domain.parser.ResultParser
 import java.lang.reflect.Type
 
 class MoshiResultParser(

@@ -1,8 +1,8 @@
-package ru.magomedcoder.jsonrpc
+package ru.magomedcoder.jrac
 
-import ru.magomedcoder.jsonrpc.domain.JsonRpcClient
-import ru.magomedcoder.jsonrpc.domain.JsonRpcInterceptor
-import ru.magomedcoder.jsonrpc.domain.protocol.JsonRpcResponse
+import ru.magomedcoder.jrac.domain.JsonRpcClient
+import ru.magomedcoder.jrac.domain.JsonRpcInterceptor
+import ru.magomedcoder.jrac.domain.protocol.JsonRpcResponse
 
 class ServerCallInterceptor(private val client: JsonRpcClient) : JsonRpcInterceptor {
 
